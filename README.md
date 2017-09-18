@@ -8,10 +8,10 @@ In this project we are trying to convert a program written in Java to C++. We cr
 
 Authors
 
-Arafat Hassan
-Aashis Karki
-Md Khorrom Khan
-Harmonjot SIngh
+Arafat Hassan  
+Aashis Karki  
+Md Khorrom Khan  
+Harmonjot SIngh  
 
 License
 
