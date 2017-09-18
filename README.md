@@ -1,4 +1,5 @@
-** iPrologInCPP **
+**iPrologInCPP
+
 Prolog interpreter in C++
 
 
