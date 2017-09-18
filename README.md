@@ -1,4 +1,4 @@
-Prolog interpreter in C++
+## Prolog interpreter in C++
  
  
 In this project we are trying to convert a program written in Java to C++. We create a clone project at github for the repository https://github.com/ptarau/iProlog and work on the cloned project as a team to convert it to a working c++ program.
