@@ -25,6 +25,7 @@ class Main{
         fname.append(".nl");
     }
 };
+
 int main(int argc,const char* argv[]){
     const char* fname = argv[0];
     Main ob;
