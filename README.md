@@ -22,10 +22,3 @@ This project is licensed under the UNT License - see the LICENSE file for detail
 #Acknowledgments
  
  
-## Please use https://github.com/CSCE-5430 to see the cloned project Java2C
-
-## First commit by Khorrom
-This is my first commit. 
-
-## First commit by Arafat
-This is my first commit.
