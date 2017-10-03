@@ -1,129 +1,117 @@
+#include <iostream>
 
-/**
-Dynamic Stack for int data.
- */
-package iProlog;
-import java.util.Arrays;
+using namespace std;
 
-class IntStack {
+class IntStack{
+public:
+ int top;
+static int SIZE;
 
-  private int stack[];
+  int *stack;
+static int MINSIZE ;
 
-  private int top;
+public: IntStack(){
+stack = new int[SIZE];
+int i;
+for(i = 0; i < SIZE; i++){
+stack[i] = 0;
+}
+top = -1;
+}
 
-  static int SIZE = 16; // power of 2
+public :IntStack(int size){
+stack = new int[size];
+int i ;
+for(i = 0; i < size; i++){
+stack[i] = 0;
+}
+top = -1;
+}
 
-  static int MINSIZE = 1 << 15; // power of 2
+const int getTop(){
+return top;
+}
+
+const int setTop(const int top){
+return this->top = top;
+}
+
+const void clear(){
+top = -1;
+}
+
+const bool isEmpty(){
+
+return top < 0;
+}
+
+void push(int i){
+
+if(++top >= SIZE){
+expand();
+}
+
+stack[top] = i;
+}
+
+const int pop(){
+const int r = stack[top--];
+shrink();
+return r;
+}
+
+const int get(const int i){
+return stack[i];
+}
+
+const void set(const int i, const int val){
+
+stack[i] = val;
+}
+
+const int size(){
+return top + 1;
+}
+
+private : const void expand(){
+int l = SIZE;
+SIZE = SIZE <<1;
+int *newstack = new int[SIZE];
+for(int i = 0; i < l; i++){
+newstack[i] = stack[i];
+cout<< newstack[i]<< endl;
+}
+delete[] stack;
+stack = newstack;
+}
 
 
-  IntStack() {
-    this(SIZE);
-  }
+private: const void shrink(){
+int l = SIZE;
+if(l <= MINSIZE || top << 2 >= 1){
+return;
+}
+l = 1 + (top << 1);
+if(top < MINSIZE){
+l = MINSIZE;
+}
+int *newstack1 = new int[l];
+for(int i = 0; i < l; i++){
+newstack1[i] = stack[i];
+delete[] stack;
+stack = newstack1;
+}
+}
+public: void print(){
+for(int i=0; i< SIZE; i++){
+cout<< stack[i]<< endl;
+}
+}
+};
+int IntStack :: SIZE = 16;
+int IntStack :: MINSIZE = 1 << 15;
 
-  IntStack(final int size) {
-    stack = new int[size];
-    clear();
-  }
-
-  final int getTop() {
-    return top;
-  }
-
-  final int setTop(final int top) {
-    return this.top = top;
-  }
-
-  final void clear() {
-    //for (int i = 0; i <= top; i++)
-    //stack[i] = 0;
-    top = -1;
-  }
-
-  final boolean isEmpty() {
-    return top < 0;
-  }
-
-  /**
-   * Pushes an element - top is incremented first than the
-   * element is assigned. This means top point to the last assigned
-   * element - which can be returned with peek().
-   */
-  final void push(final int i) {
-    // IO.dump("push:"+i);
-    if (++top >= stack.length) {
-      expand();
-    }
-    stack[top] = i;
-  }
-
-  final int pop() {
-    final int r = stack[top--];
-    shrink();
-    return r;
-  }
-
-  final int get(final int i) {
-    return stack[i];
-  }
-
-  final void set(final int i, final int val) {
-    stack[i] = val;
-  }
-
-  final int size() {
-    return top + 1;
-  }
-
-  /**
-   * dynamic array operation: doubles when full
-   */
-  private final void expand() {
-    final int l = stack.length;
-    final int[] newstack = new int[l << 1];
-
-    System.arraycopy(stack, 0, newstack, 0, l);
-    stack = newstack;
-  }
-
-  /**
-  * dynamic array operation: shrinks to 1/2 if more than than 3/4 empty
-  */
-  private final void shrink() {
-    int l = stack.length;
-    if (l <= MINSIZE || top << 2 >= l)
-      return;
-    l = 1 + (top << 1); // still means shrink to at 1/2 or less of the heap
-    if (top < MINSIZE) {
-      l = MINSIZE;
-    }
-
-    final int[] newstack = new int[l];
-    System.arraycopy(stack, 0, newstack, 0, top + 1);
-    stack = newstack;
-  }
-
-  int[] toArray() {
-    final int[] array = new int[size()];
-    if (size() > 0) {
-      System.arraycopy(stack, 0, array, 0, size());
-    }
-    return array;
-  }
-
-  public final void reverse() {
-    int l = size();
-    int h = l >> 1;
-    // Prolog.dump("l="+l);
-    for (int i = 0; i < h; i++) {
-      int temp = stack[i];
-      stack[i] = stack[l - i - 1];
-      stack[l - i - 1] = temp;
-    }
-  }
-
-  @Override
-  public String toString() {
-    return Arrays.toString(toArray());
-  }
-
+int main(){
+IntStack intstack;
+return 0;
 }
