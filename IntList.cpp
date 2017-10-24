@@ -1,5 +1,6 @@
 #include "IntList.h"
 
+
 IntList :: IntList(const int head) 
 {
   this.head = head;
@@ -55,5 +56,14 @@ const IntStack IntList :: toInts(IntList Xs)
   return is;
 }
 
+const int IntList :: len(const IntList Xs) 
+{
+  return toInts(Xs).size();
+}
+
+virtual String IntList :: toString() 
+{
+  return toInts(this).toString();
+}
 
 
