@@ -1,5 +1,6 @@
 #include "IntList.h"
 
+
 IntList :: IntList(const int head) 
 {
   this.head = head;
