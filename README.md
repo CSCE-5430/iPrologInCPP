@@ -11,7 +11,7 @@ In this project we are trying to convert a program written in prolog (Java) to C
  Arafat Hassan  
  Aashis Karki  
  Md Khorrom Khan  
- Harmanjot SIngh  
+  
  
  
 #License
